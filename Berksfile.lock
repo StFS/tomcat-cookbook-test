@@ -1,0 +1,26 @@
+DEPENDENCIES
+  tomcat
+    git: https://github.com/nextcode-health/tomcat.git
+    revision: 92a679788aab22df942d846bc97199b66c8571e5
+    branch: master
+  tomcat-test
+    path: .
+    metadata: true
+
+GRAPH
+  apt (2.6.1)
+  chef-sugar (2.5.0)
+  java (1.29.0)
+  openssl (2.0.2)
+    chef-sugar (>= 0.0.0)
+  tomcat (0.17.1)
+    java (>= 0.0.0)
+    openssl (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  tomcat-test (0.1.0)
+    apt (>= 0.0.0)
+    tomcat (>= 0.0.0)
+    yum-epel (>= 0.0.0)
+  yum (3.5.2)
+  yum-epel (0.6.0)
+    yum (~> 3.0)

@@ -1,0 +1,29 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+  - name: centos-7.0
+
+suites:
+  - name: default
+    run_list:
+      - recipe[tomcat-test::default]
+    attributes: {
+        tomcat: { 
+            base_version: 7, 
+            java_options: "${JAVA_OPTS} -Xmx128M -Djava.awt.headless=true",
+
+            instances: {
+                csa: {
+                    port: 8081,
+                    ajp_port: 8010,
+                    shutdown_port: 8006
+                }
+            }
+        } 
+    }
